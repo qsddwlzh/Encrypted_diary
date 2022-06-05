@@ -3,7 +3,7 @@
 
 这个版本有详细的注释
 
-还有，此版本因算法更改与main版本不可通用!
+还有，此版本因算法更改与main版本不通用!
 
 主要代码在QtWidgetsApplication.h里面不在main.cpp里面
 
