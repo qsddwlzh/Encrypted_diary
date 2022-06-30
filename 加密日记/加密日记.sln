@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "加密日记", "加密日记.vcxproj", "{C0E0191C-DCCA-4CFC-AB48-3499D074E7DA}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup-加密日记", "..\Setup-加密日记\Setup-加密日记.vdproj", "{4E76B4D3-19B0-41C5-B205-009CD8C70FA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -15,6 +17,8 @@ Global
 		{C0E0191C-DCCA-4CFC-AB48-3499D074E7DA}.Debug|x64.Build.0 = Debug|x64
 		{C0E0191C-DCCA-4CFC-AB48-3499D074E7DA}.Release|x64.ActiveCfg = Release|x64
 		{C0E0191C-DCCA-4CFC-AB48-3499D074E7DA}.Release|x64.Build.0 = Release|x64
+		{4E76B4D3-19B0-41C5-B205-009CD8C70FA4}.Debug|x64.ActiveCfg = Debug
+		{4E76B4D3-19B0-41C5-B205-009CD8C70FA4}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

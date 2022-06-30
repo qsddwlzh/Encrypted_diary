@@ -1,6 +1,6 @@
 #pragma once
 
-
+#include <iostream>
 #include <QApplication>
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsApplication.h"
@@ -93,14 +93,12 @@ private slots:
         }
         int mm_dq_wz = 0;//这个变量只是为了逐个字符地读取密码
         int mm_len = mm.length();//获取密码长度
-        int mm_dq_wz_f = mm_len - 1;//这个变量只是为了逐个字符地从末尾读取密码
+        std::cout << mm_len << std::endl;
         QString mm_a_bit;//这是用来存每次密码转哈希的密码字符串
         if (mm_len > 18) {//若密码长度大于十八位则把密码分成每份18位的小段取哈希值，因为C++提供的哈希函数输出为固定的十八位，所以分段长度多了容易哈希碰撞，少了又浪费
             for (int i = 0; i < 18; i++) {
                 mm_a_bit += mm[mm_dq_wz];//把密码的字符的字符一个一个地导入到mm_a_bit
-                mm_a_bit += mm[mm_dq_wz_f];//把密码的字符的字符从后向前一个一个地导入到mm_a_bit
                 mm_dq_wz++;//光标向后移动一个
-                mm_dq_wz_f--;//另一个光标向前移动一个
                 mm_len--;//密码剩余长度减一
             }
             mm_hs = std::hash<QString>()(mm_a_bit);//把这一小段换成哈希值
@@ -122,9 +120,7 @@ private slots:
                 if (mm_len > 18) {
                     for (int i = 0; i < 18; i++) {
                         mm_a_bit += mm[mm_dq_wz];
-                        mm_a_bit += mm[mm_dq_wz_f];
                         mm_dq_wz++;
-                        mm_dq_wz_f--;
                         mm_len--;
                         if (mm_dq_wz >= mm_len) {
                             break;
@@ -141,6 +137,7 @@ private slots:
         text_dz_b = 1;//把用过的量全部初始化
         mm_dz_b = 1;
         jg_dz_b = 1;
+        mm_hs = 0;
         jg.close();//关闭并写入二进制文件
         QMessageBox::information(this, QString::fromLocal8Bit("提示消息"), QString::fromLocal8Bit("加密成功"));//弹出提示框
     };
@@ -186,14 +183,12 @@ private slots:
         }
         int mm_dq_wz = 0;
         int mm_len = mm.length();
-        int mm_dq_wz_f = mm_len - 1;
+        std::cout << mm_len << std::endl;
         QString mm_a_bit;
         if (mm_len > 18) {
             for (int i = 0; i < 18; i++) {
                 mm_a_bit += mm[mm_dq_wz];
-                mm_a_bit += mm[mm_dq_wz_f];
                 mm_dq_wz++;
-                mm_dq_wz_f--;
                 mm_len--;
             }
             mm_hs = std::hash<QString>()(mm_a_bit);
@@ -215,9 +210,7 @@ private slots:
                 if (mm_len > 18) {
                     for (int i = 0; i < 18; i++) {
                         mm_a_bit += mm[mm_dq_wz];
-                        mm_a_bit += mm[mm_dq_wz_f];
                         mm_dq_wz++;
-                        mm_dq_wz_f--;
                         mm_len--;
                         if (mm_dq_wz >= mm_len) {
                             break;
@@ -234,6 +227,7 @@ private slots:
         text_dz_b = 1;
         mm_dz_b = 1;
         jg_dz_b = 1;
+        mm_hs = 0;
         jg.close();
         QMessageBox::information(this, QString::fromLocal8Bit("提示消息"), QString::fromLocal8Bit("解密成功"));
     };
