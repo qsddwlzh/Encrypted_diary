@@ -10,3 +10,4 @@
 可执行文件在/x64/Release里面
 
 安装包是setup.exe和setup-加密日记.msi
+还有，欢迎来找茬
